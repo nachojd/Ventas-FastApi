@@ -60,7 +60,7 @@ class Portador(HTTPBearer):
 # crear punto de entrada o endpoint
 @app.get('/',tags=['Inicio']) # cambio de etiqueta en documentación
 def mensaje():
-    return HTMLResponse('<h2>Titulo HTML desde FastAPI</h2>')
+    return HTMLResponse('<h2>Titulo HTML desde FastAPI. Commit de Prueba</h2>')
 
 @app.get('/ventas',tags=['Ventas'],response_model=List[Ventas],status_code=200, dependencies=[Depends(Portador())])
 def dame_ventas()->List[Ventas]:
