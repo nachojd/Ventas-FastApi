@@ -3,6 +3,7 @@ from fastapi import FastAPI, Body, Path, Query, Request, HTTPException, Depends
 from fastapi.security import HTTPBearer
 
 from fastapi.responses import HTMLResponse, JSONResponse
+
 from pydantic import BaseModel, Field
 from typing import Optional, List
 
@@ -55,12 +56,11 @@ class Portador(HTTPBearer):
         if dato['email'] != 'admin':
             raise HTTPException(status_code=403, detail='No autorizado')
         
-    
 
 # crear punto de entrada o endpoint
-@app.get('/',tags=['Inicio']) # cambio de etiqueta en documentación
+@app.get('/',tags=['Inicio'], response_class=HTMLResponse) # cambio de etiqueta en documentación
 def mensaje():
-    return HTMLResponse('<h2>Titulo HTML desde FastAPI. Commit de Prueba</h2>')
+    return HTMLResponse('<h2>Titulo HTML desde FastAPI.</h2>')
 
 @app.get('/ventas',tags=['Ventas'],response_model=List[Ventas],status_code=200, dependencies=[Depends(Portador())])
 def dame_ventas()->List[Ventas]:

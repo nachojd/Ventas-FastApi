@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Dev\FastAPI\Productos-FastApi\venv
+set VIRTUAL_ENV=C:\Users\ignac\OneDrive\Documentos\GitHub\Ventas-FastApi\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
